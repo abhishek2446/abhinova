@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Abhinova: Your Digital Solution Partner – Innovating ideas into reality with web/app development, design, automation, marketing, and more.">
+  <title>Abhinova | Innovation Simplified</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind custom theme -->
+  <script>
+    if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  // Toggle logic
+  document.getElementById('theme-toggle').onclick = function() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    localStorage.theme = isDark ? 'dark' : 'light';
+  }
+      tailwind.config = {
+          theme: {
+              extend: {
+                  fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'], },
+                  colors: {
+                      primary: "#6366f1",
+                      accent: "#f472b6",
+                  },
+              }
+          }
+      }
+  </script>
+  <!-- Lenis (Smooth Scroll) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/bundled/lenis.min.js"></script>
+  <!-- GSAP for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- Favicon can be added here (link rel="icon"...) -->
+  <style>
+    /* Accessibility focus outline */
+    :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+    /* Custom dark mode gradient bg */
+    .gradient-bg {
+      background: linear-gradient(135deg, #6366f1 0%, #f472b6 100%);
+    }
+    .particle-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    }
+
+    .logo-1{
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300" x-data="{dark: false}" x-init="$watch('dark', val => document.documentElement.classList.toggle('dark', val))">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/80 backdrop-blur-md shadow transition">
+    <nav class="container mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#home" class="font-bold text-primary text-2xl tracking-tight rounded-lg px-2 focus-visible:ring-2"> <img src="assets/abhi.jpg" alt="logo" width="70px" height="70px" class="logo-1"></a>
+      <ul id="navbar-links" class="hidden md:flex gap-6 items-center font-medium">
+        <li><a href="#home" class="hover:text-accent transition active-link">Home</a></li>
+        <li><a href="#about" class="hover:text-accent transition">About</a></li>
+        <li><a href="#services" class="hover:text-accent transition">Services</a></li>
+        <li><a href="#portfolio" class="hover:text-accent transition">Portfolio</a></li>
+        <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
+      </ul>
+      <!-- Dark/Light Toggle -->
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="ml-3 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition ring-0">
+        <svg id="icon-sun" class="w-6 h-6 text-yellow-500 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="icon-moon" class="w-6 h-6 text-primary hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0111.21 3a7 7 0 0010.07 9.79z"/></svg>
+      </button>
+      <!-- Mobile menu button -->
+      <button id="nav-toggle" aria-label="Open Navigation" class="md:hidden ml-2 text-2xl">
+        <span>&#9776;</span>
+      </button>
+    </nav>
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+      <ul class="flex flex-col p-4 gap-4 font-medium">
+        <li><a href="#home" class="hover:text-accent transition">Home</a></li>
+        <li><a href="#about" class="hover:text-accent transition">About</a></li>
+        <li><a href="#services" class="hover:text-accent transition">Services</a></li>
+        <li><a href="#portfolio" class="hover:text-accent transition">Portfolio</a></li>
+        <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Home/Hero Section -->
+  <section id="home" class="relative flex flex-col justify-center items-center h-[85vh] min-h-[500px] gradient-bg text-white text-center overflow-hidden">
+    <canvas id="hero-particles" class="particle-bg w-full h-full"></canvas>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full py-12 md:py-20">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Abhinova</h1>
+      <span id="tagline" class="block text-2xl md:text-3xl font-semibold mb-2 transition-all duration-700"></span>
+      <p class="text-xl md:text-2xl mb-8 font-medium drop-shadow">Innovating Ideas into Reality</p>
+      <div class="flex flex-wrap gap-4 justify-center mb-8">
+        <a href="#contact" class="bg-accent hover:bg-primary text-white font-bold px-6 py-3 rounded-lg shadow-md hover:scale-105 transition-all focus-visible:ring-2 focus-visible:ring-accent">Get Started</a>
+        <a href="#services" class="bg-white dark:bg-gray-900 text-primary dark:text-accent font-bold px-6 py-3 rounded-lg shadow hover:scale-105 hover:bg-accent/10 dark:hover:bg-primary/20 transition focus-visible:ring-2 focus-visible:ring-accent">Explore Services</a>
+      </div>
+      <!-- Featured Services Preview -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mt-8">
+        <a href="#services" class="service-card group">
+          <div class="flex justify-center items-center mb-2"><span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition">web</span></div>
+          <div class="font-semibold text-lg mb-1">Web & App Development</div>
+          <div class="text-sm text-white/80 dark:text-gray-200/80">Websites, Mobile Apps, E-commerce</div>
+        </a>
+        <a href="#services" class="service-card group">
+          <div class="flex justify-center items-center mb-2"><span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition">brush</span></div>
+          <div class="font-semibold text-lg mb-1">Graphic/UI Design</div>
+          <div class="text-sm text-white/80 dark:text-gray-200/80">Logos, UX, Visuals</div>
+        </a>
+        <a href="#services" class="service-card group">
+          <div class="flex justify-center items-center mb-2"><span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition">movie</span></div>
+          <div class="font-semibold text-lg mb-1">Video & Animation</div>
+          <div class="text-sm text-white/80 dark:text-gray-200/80">Promos, Explainers, Motion</div>
+        </a>
+        <a href="#services" class="service-card group">
+          <div class="flex justify-center items-center mb-2"><span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition">rocket</span></div>
+          <div class="font-semibold text-lg mb-1">Digital Marketing</div>
+          <div class="text-sm text-white/80 dark:text-gray-200/80">Campaigns, Growth, Support</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-4">About Us</h2>
+    <p class="text-center max-w-2xl mx-auto mb-8 text-lg">At Abhinova, creativity meets technology to transform your vision into outstanding digital solutions. We’re passionate about innovation, committed to quality, and driven by results that make a difference.</p>
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+      <!-- Vision & Mission -->
+      <div class="bg-primary/10 dark:bg-primary/20 rounded-3xl p-6 shadow-md flex flex-col space-y-3">
+        <h3 class="font-semibold text-xl text-primary mb-1">Vision</h3>
+        <p>To inspire, empower, and advance businesses and individuals with innovative, seamless, and ethical technology solutions.</p>
+        <h3 class="font-semibold text-xl text-primary mt-4 mb-1">Mission</h3>
+        <p>To deliver accessible, reliable, and creative digital services that delight and drive success for our clients worldwide.</p>
+      </div>
+      <!-- Why Choose -->
+      <div class="bg-accent/10 dark:bg-accent/20 rounded-3xl p-6 shadow-md">
+        <h3 class="font-semibold text-xl text-accent mb-4">Why Choose Abhinova?</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">lightbulb</span> Innovative, customized solutions</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">verified</span> Transparent, quality-focused process</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">accessibility</span> User-centric, accessible design</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">support_agent</span> Lifelong partnership & support</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Team Intro -->
+    <div>
+      <h3 class="text-2xl font-bold text-center mb-6">Meet The Team</h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
+        <!-- Team Member Card Template -->
+        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg transition transform hover:-translate-y-2 outline-none focus-visible:ring-2 p-6 flex flex-col items-center">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Lead" class="rounded-full w-20 h-20 mb-3 shadow border-2 border-primary object-cover">
+          <div class="font-medium text-lg">Amit Verma</div>
+          <div class="text-primary text-sm">Founder / Lead Engineer</div>
+          <div class="text-sm text-gray-500 mt-2 transition opacity-0 group-hover:opacity-100 group-focus:opacity-100">Chess lover ♟️ | <a href="https://linkedin.com/" aria-label="LinkedIn" class="text-primary underline">LinkedIn</a></div>
+        </div>
+        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg transition transform hover:-translate-y-2 outline-none focus-visible:ring-2 p-6 flex flex-col items-center">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="UI Designer" class="rounded-full w-20 h-20 mb-3 shadow border-2 border-accent object-cover">
+          <div class="font-medium text-lg">Sneha Rao</div>
+          <div class="text-accent text-sm">UI/UX Designer</div>
+          <div class="text-sm text-gray-500 mt-2 transition opacity-0 group-hover:opacity-100 group-focus:opacity-100">Coffee Artist ☕ | <a href="https://instagram.com/" aria-label="Instagram" class="text-accent underline">Instagram</a></div>
+        </div>
+        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg transition transform hover:-translate-y-2 outline-none focus-visible:ring-2 p-6 flex flex-col items-center">
+          <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Marketing" class="rounded-full w-20 h-20 mb-3 shadow border-2 border-primary object-cover">
+          <div class="font-medium text-lg">Rahul Sharma</div>
+          <div class="text-primary text-sm">Digital Marketing</div>
+          <div class="text-sm text-gray-500 mt-2 transition opacity-0 group-hover:opacity-100 group-focus:opacity-100">Cyclist 🚴 | <a href="https://twitter.com/" aria-label="Twitter" class="text-primary underline">Twitter</a></div>
+        </div>
+        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg transition transform hover:-translate-y-2 outline-none focus-visible:ring-2 p-6 flex flex-col items-center">
+          <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Animator" class="rounded-full w-20 h-20 mb-3 shadow border-2 border-accent object-cover">
+          <div class="font-medium text-lg">Priya Nair</div>
+          <div class="text-accent text-sm">Animator & Video Editor</div>
+          <div class="text-sm text-gray-500 mt-2 transition opacity-0 group-hover:opacity-100 group-focus:opacity-100">Gamer 🎮 | <a href="https://behance.net/" aria-label="Behance" class="text-accent underline">Behance</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-gray-50 dark:bg-gray-900 py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+      <!-- Individual Service Card Template -->
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer aria-expanded:outline-none">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-primary">web</span>
+          <div class="font-semibold text-lg">Web & App Development</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Beautiful, robust websites and apps.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-primary focus-visible:ring-2" aria-label="Show Details">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Responsive Websites (HTML/CSS/JS, React, etc.)</li>
+            <li>Mobile Apps (Android, iOS, Hybrid)</li>
+            <li>E-commerce Stores & Marketplaces</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-accent">brush</span>
+          <div class="font-semibold text-lg">Graphic & UI/UX Design</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Branding, logo, and visual design.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-accent focus-visible:ring-2">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Logos, Branding Kits, Banners</li>
+            <li>UI/UX for Websites & Apps</li>
+            <li>Wireframes, Prototypes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-primary">movie</span>
+          <div class="font-semibold text-lg">Video Editing & Animation</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Stunning motion graphics and videos.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-primary focus-visible:ring-2">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Promo Videos, Explainers, Trailers</li>
+            <li>2D/3D Animation, Motion Graphics</li>
+            <li>Editing for Social & Ad Campaigns</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-accent">build</span>
+          <div class="font-semibold text-lg">Software & Automation Tools</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Custom automation, workflow tools.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-accent focus-visible:ring-2">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Process Automation</li>
+            <li>Custom Business Solutions</li>
+            <li>Integrations & APIs</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-primary">ads_click</span>
+          <div class="font-semibold text-lg">Digital Marketing Support</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Growth marketing & online ads.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-primary focus-visible:ring-2">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Ad Campaign Setup (Google, Meta, Instagram)</li>
+            <li>SEO, Marketing Strategy</li>
+            <li>Social Catalogues & Growth Hacking</li>
+          </ul>
+        </div>
+      </div>
+      <div class="expand-card group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg transition-all relative cursor-pointer">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-3xl text-accent">miscellaneous_services</span>
+          <div class="font-semibold text-lg">Other Tech Services</div>
+        </div>
+        <div class="text-gray-700 dark:text-gray-200">Consulting, training, support.</div>
+        <button class="expand-btn absolute top-4 right-4 text-xl text-gray-400 group-hover:text-accent focus-visible:ring-2">&#9660;</button>
+        <div class="card-details mt-4 hidden text-base text-gray-600 dark:text-gray-300">
+          <ul class="list-disc list-inside text-sm space-y-1">
+            <li>Consulting & Mentoring</li>
+            <li>Tech Training & Maintenance</li>
+            <li>General IT Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Portfolio/Projects</h2>
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button class="filter-btn px-4 py-2 rounded-lg border border-primary text-primary font-semibold bg-white dark:bg-gray-900 hover:bg-primary hover:text-white transition" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 rounded-lg border border-primary text-primary font-semibold bg-white dark:bg-gray-900 hover:bg-primary hover:text-white transition" data-filter="webdev">Web Dev</button>
+      <button class="filter-btn px-4 py-2 rounded-lg border border-accent text-accent font-semibold bg-white dark:bg-gray-900 hover:bg-accent hover:text-white transition" data-filter="design">Design</button>
+      <button class="filter-btn px-4 py-2 rounded-lg border border-primary text-primary font-semibold bg-white dark:bg-gray-900 hover:bg-primary hover:text-white transition" data-filter="video">Video</button>
+      <button class="filter-btn px-4 py-2 rounded-lg border border-accent text-accent font-semibold bg-white dark:bg-gray-900 hover:bg-accent hover:text-white transition" data-filter="marketing">Marketing</button>
+    </div>
+    <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Example Portfolio Cards: Add more as needed, use data-category for filtering -->
+      <div class="portfolio-card rounded-2xl shadow-lg transition hover:-translate-y-2 group bg-white dark:bg-gray-900" data-category="webdev">
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-1 text-primary">Vinci Code Guessing Game (Python)</h4>
+          <p class="text-gray-700 dark:text-gray-200 mb-3">Custom board game with AI, GUI (Tkinter, PyGame, Java Swing).</p>
+          <button class="case-btn text-accent hover:underline font-semibold">Case Study →</button>
+        </div>
+        <div class="case-details hidden bg-white dark:bg-gray-800 p-4 rounded-b-2xl border-t border-primary">
+          <p class="font-semibold">Problem:</p>
+          <p class="mb-2">Needed an engaging, intelligent game experience.</p>
+          <p class="font-semibold">Solution:</p>
+          <p class="mb-2">Developed custom rules, multiple interfaces, and scalable AI logic.</p>
+          <p class="font-semibold">Result:</p>
+          <p>Positive user feedback; reusable codebase for future games.</p>
+        </div>
+      </div>
+      <div class="portfolio-card rounded-2xl shadow-lg transition hover:-translate-y-2 group bg-white dark:bg-gray-900" data-category="webdev">
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-1 text-primary">Portfolio Website (Flask)</h4>
+          <p class="text-gray-700 dark:text-gray-200 mb-3">Mystical/professional site with multilingual support, AI bot.</p>
+          <button class="case-btn text-accent hover:underline font-semibold">Case Study →</button>
+        </div>
+        <div class="case-details hidden bg-white dark:bg-gray-800 p-4 rounded-b-2xl border-t border-primary">
+          <p class="font-semibold">Problem:</p>
+          <p class="mb-2">Needed multilingual, personal branding with AI chat.</p>
+          <p class="font-semibold">Solution:</p>
+          <p class="mb-2">Built Flask app with translation, personality-driven chatbot, rich branding.</p>
+          <p class="font-semibold">Result:</p>
+          <p>Increased engagement; strong impression for new contacts.</p>
+        </div>
+      </div>
+      <div class="portfolio-card rounded-2xl shadow-lg transition hover:-translate-y-2 group bg-white dark:bg-gray-900" data-category="webdev">
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-1 text-primary">Lotto Koyote Publications</h4>
+          <p class="text-gray-700 dark:text-gray-200 mb-3">Spiritual/artistic site (Books, Cards, Media, Daily Oracle features).</p>
+          <button class="case-btn text-accent hover:underline font-semibold">Case Study →</button>
+        </div>
+        <div class="case-details hidden bg-white dark:bg-gray-800 p-4 rounded-b-2xl border-t border-primary">
+          <p class="font-semibold">Problem:</p>
+          <p class="mb-2">Needed engaging showcase for spiritual/artistic products.</p>
+          <p class="font-semibold">Solution:</p>
+          <p class="mb-2">Designed immersive, interactive UI and e-commerce functions.</p>
+          <p class="font-semibold">Result:</p>
+          <p>Client showcased products and increased sales.</p>
+        </div>
+      </div>
+      <!-- Add more portfolio cards: Categorize with data-category="design" etc as needed. -->
+      <div class="portfolio-card rounded-2xl shadow-lg transition hover:-translate-y-2 group bg-white dark:bg-gray-900" data-category="design">
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-1 text-accent">Abhinova Logo & Branding</h4>
+          <p class="text-gray-700 dark:text-gray-200 mb-3">Logo, business card, and visual branding design.</p>
+          <button class="case-btn text-accent hover:underline font-semibold">Case Study →</button>
+        </div>
+        <div class="case-details hidden bg-white dark:bg-gray-800 p-4 rounded-b-2xl border-t border-accent">
+          <p class="font-semibold">Problem:</p>
+          <p class="mb-2">Needed professional, memorable branding for launch.</p>
+          <p class="font-semibold">Solution:</p>
+          <p class="mb-2">Designed modern identity, cards, and templates.</p>
+          <p class="font-semibold">Result:</p>
+          <p>Improved recognition and client trust.</p>
+        </div>
+      </div>
+      <div class="portfolio-card rounded-2xl shadow-lg transition hover:-translate-y-2 group bg-white dark:bg-gray-900" data-category="marketing">
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-1 text-primary">GoFundMe Campaign Strategy</h4>
+          <p class="text-gray-700 dark:text-gray-200 mb-3">Copywriting, growth planning, campaign setup.</p>
+          <button class="case-btn text-accent hover:underline font-semibold">Case Study →</button>
+        </div>
+        <div class="case-details hidden bg-white dark:bg-gray-800 p-4 rounded-b-2xl border-t border-primary">
+          <p class="font-semibold">Problem:</p>
+          <p class="mb-2">Low campaign traction and unclear messaging.</p>
+          <p class="font-semibold">Solution:</p>
+          <p class="mb-2">Crafted compelling copy and digital plan.</p>
+          <p class="font-semibold">Result:</p>
+          <p>More donations, better public reach.</p>
+        </div>
+      </div>
+      <!-- More cards can be added as needed for video, marketing etc. -->
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-gray-50 dark:bg-gray-900 py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Testimonials</h2>
+    <div id="testimonial-slider" class="max-w-2xl mx-auto rounded-2xl shadow-lg bg-white dark:bg-gray-800 p-8 relative flex flex-col items-center">
+      <div>
+        <!-- Individual Testimonial, JS will rotate -->
+        <div class="testimonial-item flex flex-col items-center text-center" style="display: block;">
+          <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Client 1" class="w-16 h-16 rounded-full shadow mb-2 border-2 border-primary object-cover">
+          <div class="font-semibold mb-1">Arun T.</div>
+          <div class="flex gap-1 text-xl text-accent mb-1">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+          </div>
+          <p class="italic">“Abhinova made our web presence stand out. Loved the process: creative, fast, reliable.”</p>
+          <div class="mt-2 text-xs text-gray-400">Branding Project • 2025</div>
+        </div>
+        <div class="testimonial-item flex flex-col items-center text-center" style="display: none;">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 2" class="w-16 h-16 rounded-full shadow mb-2 border-2 border-accent object-cover">
+          <div class="font-semibold mb-1">Devika P.</div>
+          <div class="flex gap-1 text-xl text-accent mb-1">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p class="italic">“From design to launch, the team made it easy. Clear comms and great results.”</p>
+          <div class="mt-2 text-xs text-gray-400">E-commerce Project • 2025</div>
+        </div>
+        <div class="testimonial-item flex flex-col items-center text-center" style="display: none;">
+          <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Client 3" class="w-16 h-16 rounded-full shadow mb-2 border-2 border-primary object-cover">
+          <div class="font-semibold mb-1">Siddharth M.</div>
+          <div class="flex gap-1 text-xl text-accent mb-1">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <p class="italic">“My go-to for design and software. The value and attention to detail is unmatched.”</p>
+          <div class="mt-2 text-xs text-gray-400">Consulting • 2025</div>
+        </div>
+      </div>
+      <!-- Testimonial Nav -->
+      <div class="flex gap-2 mt-6">
+        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-400" aria-label="Go to testimonial 1"></button>
+        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Go to testimonial 2"></button>
+        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Go to testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+    <form class="max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 flex flex-col gap-6" autocomplete="on" aria-label="Contact form">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input type="text" name="name" required placeholder="Your Name" aria-label="Name" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus-visible:ring-2 focus-visible:ring-primary outline-none dark:bg-gray-800 dark:border-gray-600" autocomplete="name">
+        <input type="email" name="email" required placeholder="Email Address" aria-label="Email" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus-visible:ring-2 focus-visible:ring-primary outline-none dark:bg-gray-800 dark:border-gray-600" autocomplete="email">
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus-visible:ring-2 focus-visible:ring-primary outline-none dark:bg-gray-800 dark:border-gray-600" autocomplete="tel">
+      </div>
+      <textarea name="message" required placeholder="Your Message" aria-label="Message" class="min-h-[120px] px-4 py-3 rounded-lg border border-gray-300 focus-visible:ring-2 focus-visible:ring-primary outline-none dark:bg-gray-800 dark:border-gray-600"></textarea>
+      <button type="submit" class="bg-gradient-to-r from-primary to-accent text-white font-bold px-6 py-3 rounded-lg shadow hover:scale-105 transition focus-visible:ring-2 focus-visible:ring-accent">Send Message</button>
+    </form>
+    <div class="flex flex-col sm:flex-row gap-8 items-center justify-center mt-12">
+      <div>
+        <div class="font-semibold mb-1">Email:</div>
+        <a href="mailto:hello@abhinova.com" class="text-primary hover:underline">hello@abhinova.com</a>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Phone:</div>
+        <a href="tel:+911234567890" class="text-primary hover:underline">+91 12345 67890</a>
+      </div>
+      <div class="flex gap-3">
+        <a href="#" aria-label="Instagram" class="text-accent hover:scale-110 text-2xl transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn" class="text-primary hover:scale-110 text-2xl transition"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter/X" class="text-primary hover:scale-110 text-2xl transition"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <p class="text-center mt-8 text-xl font-semibold">Let’s Innovate Together <span class="inline-block animate-bounce">🚀</span></p>
+    <!-- Optionally add a Google Map iframe here -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-tr from-primary to-accent text-white py-6 mt-12">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4">
+      <div class="flex gap-6 mb-2 md:mb-0">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#portfolio" class="hover:underline">Portfolio</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </div>
+      <div class="flex gap-4">
+        <a href="#" aria-label="Instagram" class="hover:text-accent"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-accent"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter/X" class="hover:text-accent"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+      <div class="text-sm">&copy; Abhinova 2025. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Google Fonts: Inter (for modern look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Material Symbols (icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <!-- Font Awesome for Social Icons -->
+  <script src="https://kit.fontawesome.com/16ba6191a4.js" crossorigin="anonymous"></script>
+
+  <!-- Scripts: Navbar, Tagline Rotator, Animations, Accessibility -->
+  <script>
+    // Mobile Nav toggle
+    document.getElementById('nav-toggle').onclick = () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    };
+
+    // Sticky navbar active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('ul#navbar-links a');
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 120;
+      sections.forEach((section, i) => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach(link => link.classList.remove('active-link', 'text-accent'));
+          if (navLinks[i]) navLinks[i].classList.add('active-link', 'text-accent');
+        }
+      });
+    });
+
+    // Rotating Tagline
+    const slogans = [
+      "Innovation Simplified",
+      "Creativity Meets Technology",
+      "Your Digital Solution Partner",
+      "Design. Develop. Deliver."
+    ];
+    let currentSlogan = 0;
+    const tagline = document.getElementById('tagline');
+    function showSlogan() {
+      tagline.textContent = slogans[currentSlogan];
+      currentSlogan = (currentSlogan + 1) % slogans.length;
+    }
+    showSlogan(); setInterval(showSlogan, 3200);
+
+    // Dark/Light mode toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.onclick = () => {
+      document.documentElement.classList.toggle('dark');
+    };
+
+    // Service Expandable Cards
+    document.querySelectorAll('.expand-card').forEach(card => {
+      const btn = card.querySelector('.expand-btn');
+      const details = card.querySelector('.card-details');
+      btn.onclick = e => {
+        e.stopPropagation();
+        details.classList.toggle('hidden');
+        card.setAttribute('aria-expanded', !details.classList.contains('hidden'));
+        btn.innerHTML = details.classList.contains('hidden') ? '&#9660;' : '&#9650;';
+      };
+    });
+
+    // Portfolio Filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => btn.onclick = () => {
+      const cat = btn.getAttribute('data-filter');
+      document.querySelectorAll('.portfolio-card').forEach(card => {
+        if (cat == 'all' || card.dataset.category.includes(cat)) card.classList.remove('hidden');
+        else card.classList.add('hidden');
+      });
+      filterBtns.forEach(b => b.classList.remove('bg-primary', 'text-white', 'bg-accent'));
+      btn.classList.add((cat === 'design' || cat === 'marketing') ? 'bg-accent' : 'bg-primary', 'text-white');
+    });
+
+    // Case study expand on portfolio
+    document.querySelectorAll('.case-btn').forEach((btn) => {
+      btn.onclick = e => {
+        const details = btn.parentElement.nextElementSibling;
+        details.classList.toggle('hidden');
+      };
+    });
+
+    // Testimonials Slider
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let tIndex = 0;
+    function showTestimonial(idx) {
+      testimonials.forEach((item, i) => { item.style.display = i === idx ? "block" : "none"; });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-gray-400', i === idx);
+        dot.classList.toggle('bg-gray-200', i !== idx);
+      });
+      tIndex = idx;
+    }
+    dots.forEach((dot, i) => dot.onclick = () => showTestimonial(i));
+    setInterval(() => { showTestimonial((tIndex+1)%testimonials.length); }, 6000);
+    showTestimonial(0);
+
+    // Smooth Scroll (Lenis)
+    const lenis = new Lenis();
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+
+    // GSAP Animations for Section Reveals
+    document.addEventListener("DOMContentLoaded", function() {
+      gsap.utils.toArray("section").forEach(section => {
+        gsap.from(section, { 
+          autoAlpha: 0, y: 40, duration: 0.8, ease: "power1.out",
+          scrollTrigger: { trigger: section, start: "top 90%", toggleActions: "play none none none" }
+        });
+      });
+    });
+
+    // Simple Hero Particle Animation with Canvas (subtle effect)
+    const canvas = document.getElementById("hero-particles");
+    if (canvas && window.innerWidth > 640) {
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth, h = canvas.height = 420;
+      let particles = [...Array(32)].map(() => ({
+        x: Math.random() * w, y: Math.random()*h, r: Math.random()*3+2, dx: Math.random()*.5, dy: Math.random()*.3+0.1
+      }));
+      function draw() {
+        ctx.clearRect(0,0,w,h);
+        for (let p of particles) {
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
+          ctx.fillStyle = 'rgba(140, 178, 255, .32)';
+          ctx.shadowColor = '#fff';
+          ctx.shadowBlur = 10;
+          ctx.fill();
+          ctx.closePath();
+          p.x += p.dx; p.y += p.dy;
+          if (p.x>w) p.x=0; if (p.y>h) p.y=0;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('resize', ()=>{w = canvas.width=window.innerWidth; h=canvas.height=420;});
+    }
+  </script>
+</body>
+</html>
