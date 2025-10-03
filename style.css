@@ -248,7 +248,7 @@ img { max-width: 100%; display: block; }
 }
 
 .img-placeholder {
-  width: 60px; height: 60px;
+  width: 150px; height: 150px;
   margin: 0 auto 1rem;
   border-radius: 12px;
   overflow: hidden;
