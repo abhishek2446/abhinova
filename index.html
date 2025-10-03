@@ -1,502 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinova - Innovation Simplified</title>
-    <meta name="description" content="Abhinova: Your Digital Solution Partner. We innovate ideas into reality with design, development, and delivery.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <style>
-        .service-card:hover .icon-bg {
-            background-color: #4f46e5;
-            color: #ffffff;
-        }
-        @keyframes pulse-slow {
-            0%, 100% {
-                opacity: 0.75;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-        .animate-pulse-slow {
-            animation: pulse-slow 8s infinite ease-in-out;
-        }
-        .h-8{
-            border-radius: 50%;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abhinova</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-500 font-sans">
-
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300">
-  <nav class="container mx-auto flex justify-between items-center bg-blue-900 rounded-full shadow-xl p-4">
-    <!-- Logo -->
-    <a href="#home" class="flex items-center space-x-2">
-      <img src="abhi.jpg" alt="Abhinova Logo" class="h-10 rounded-full shadow-md">
-      <span class="font-bold text-lg text-white">Abhinova</span>
-    </a>
-
-    <!-- Navbar Links -->
-    <div class="hidden md:flex space-x-8 text-gray-200 font-semibold">
-      <a href="#home" class="hover:text-yellow-300 transition-colors">Home</a>
-      <a href="#about" class="hover:text-yellow-300 transition-colors">About Us</a>
-      <a href="#services" class="hover:text-yellow-300 transition-colors">Services</a>
-      <a href="#portfolio" class="hover:text-yellow-300 transition-colors">Portfolio</a>
+<body class="light-mode">
+  <header class="navbar">
+    <div class="nav-inner container">
+      <div class="logo">
+        <img src="LOGO.jpg" alt="Abhinova Logo" class="logo-img">
+        <span>Abhinova</span>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="team.html">Team</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="donate-link" href="PAYPAL_LINK_HERE" target="_blank" rel="noopener">Donate</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Contact Button -->
-    <div class="flex items-center">
-      <a href="#contact" 
-         class="px-5 py-2 bg-black text-white font-bold rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">
-         Contact
-      </a>
-    </div>
-  </nav>
-</header>
-
-<main class="pt-28">
-        <!-- Home Section -->
-        <section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden">
-            <video autoplay loop muted playsinline class="absolute inset-0 z-0 w-full h-full object-cover opacity-75">
-                <source src="946146-hd_1920_1080_30fps.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 z-10 bg-black opacity-40"></div>
-            <div class="relative z-20 max-w-4xl mx-auto">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg">Abhinova</h1>
-                <h2 id="tagline" class="text-xl sm:text-2xl md:text-3xl font-light text-white mb-8 h-10 overflow-hidden"></h2>
-                <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10">Innovating Ideas into Reality</p>
-                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contact" class="inline-block px-8 py-3 bg-white text-indigo-600 font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-transform duration-300">Get Started</a>
-                    <a href="#services" class="inline-block px-8 py-3 bg-transparent text-white border-2 border-white font-semibold rounded-full hover:bg-white hover:text-indigo-600 transition-colors duration-300">Explore Services</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about" class="container mx-auto py-20 px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-4">About Us</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">We are Abhinova, where creativity meets technology to build exceptional digital solutions. Our mission is to transform your ideas into reality through a collaborative and innovative approach.</p>
-                <div class="grid md:grid-cols-3 gap-8 text-left">
-                    <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <h3 class="text-xl font-semibold mb-2">Innovation</h3>
-                        <p class="text-gray-600 dark:text-gray-400">We push the boundaries of technology to deliver unique and forward-thinking solutions.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <h3 class="text-xl font-semibold mb-2">Quality</h3>
-                        <p class="text-gray-600 dark:text-gray-400">We maintain the highest standards of quality in every project we undertake.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <h3 class="text-xl font-semibold mb-2">Partnership</h3>
-                        <p class="text-gray-600 dark:text-gray-400">We believe in close collaboration, working with you as a true partner to achieve your goals.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Team Intro Grid -->
-            <div class="mt-16 text-center">
-                <h3 class="text-3xl font-bold mb-8">Our Team</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Example Team Member Card -->
-                    <div class="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
-                        <img src="https://via.placeholder.com/400" alt="Team Member Name" class="w-full h-auto object-cover transition-transform group-hover:scale-110 duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h4 class="text-xl font-bold text-white">John Doe</h4>
-                            <p class="text-sm text-gray-300">Lead Developer</p>
-                            <p class="text-xs mt-2 text-gray-400 italic">"Loves building complex algorithms."</p>
-                        </div>
-                    </div>
-                    <!-- Repeat for other team members -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="container mx-auto py-20 px-4">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Our Services</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">We offer a wide range of services to help you build and grow your digital presence.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg></div>
-                        <h3 class="text-xl font-bold">Web & App Development</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Websites, Mobile Apps, E-commerce Platforms.</p>
-                </div>
-                <!-- Service Card 2 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>
-                        <h3 class="text-xl font-bold">Graphic & UI/UX Design</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Logos, UI/UX for websites & apps.</p>
-                </div>
-                <!-- Service Card 3 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></div>
-                        <h3 class="text-xl font-bold">Video Editing & Animation</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Promos, Explainers, Motion Graphics.</p>
-                </div>
-                <!-- Service Card 4 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L14.25 10.25M12 21h.01M21 12c0-4.97-4.477-9-10-9S1 7.03 1 12s4.477 9 10 9c2.476 0 4.71-1.04 6.353-2.73" /></svg></div>
-                        <h3 class="text-xl font-bold">Software & Automation Tools</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Workflow automation, custom software.</p>
-                </div>
-                <!-- Service Card 5 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div>
-                        <h3 class="text-xl font-bold">Digital Marketing Support</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Campaigns, Ads (Google, Instagram, Facebook).</p>
-                </div>
-                <!-- Service Card 6 -->
-                <div class="group service-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-indigo-400 transform hover:-translate-y-2 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="icon-bg p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.247a1.5 1.5 0 012.824 0l4.743 7.828a1.5 1.5 0 01-1.412 2.274H5.454a1.5 1.5 0 01-1.412-2.274l4.743-7.828z" /></svg></div>
-                        <h3 class="text-xl font-bold">Other Tech Services</h3>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">Consulting, Training, Maintenance.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="container mx-auto py-20 px-4">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Our Projects</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">A showcase of our recent work. Click to learn more about each case study.</p>
-            </div>
-            <!-- Project Filters -->
-            <div id="filter-buttons" class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-8">
-                <button data-filter="all" class="px-4 py-2 rounded-full border border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors">All</button>
-                <button data-filter="web-dev" class="px-4 py-2 rounded-full border border-gray-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Web Dev</button>
-                <button data-filter="design" class="px-4 py-2 rounded-full border border-gray-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Design</button>
-                <button data-filter="marketing" class="px-4 py-2 rounded-full border border-gray-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Marketing</button>
-            </div>
-            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project cards will be rendered here by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-gray-100 dark:bg-gray-800">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold mb-12">What Our Clients Say</h2>
-                <div class="max-w-3xl mx-auto">
-                    <!-- Testimonial Card 1 -->
-                    <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
-                        <div class="flex justify-center mb-4">
-                            <span class="text-yellow-400 text-2xl">★★★★★</span>
-                        </div>
-                        <p class="text-lg md:text-xl font-light text-gray-700 dark:text-gray-300 italic">"Abhinova's team delivered a stunning website beyond our expectations. Their attention to detail and creative approach were exceptional!"</p>
-                        <div class="mt-6 flex items-center justify-center space-x-4">
-                            <img src="https://via.placeholder.com/80" alt="Client Name" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h4 class="font-semibold text-gray-900 dark:text-white">Jane Doe</h4>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">CEO, Tech Solutions Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="container mx-auto py-20 px-4">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Let’s Innovate Together 🚀</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Ready to start your next project? Get in touch with us today.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
-                  <form action="https://api.web3forms.com/submit" method="POST">
-                    
-                    <!-- Hidden Access Key -->
-                    <input type="hidden" name="access_key" value="0707fb22-3887-4dc9-832f-1138c8606aab">
-
-                    <div class="mb-4">
-                      <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                      <input type="text" id="name" name="name"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700">
-                    </div>
-
-                    <div class="mb-4">
-                      <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                      <input type="email" id="email" name="email"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700">
-                    </div>
-
-                    <div class="mb-4">
-                      <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
-                      <input type="tel" id="phone" name="phone"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700">
-                    </div>
-
-                    <div class="mb-4">
-                      <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                      <textarea id="message" name="message" rows="4"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-700"></textarea>
-                    </div>
-
-                    <!-- Centered Send Button -->
-                    <div class="flex justify-center">
-                      <button type="submit"
-                        class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors">
-                        Send Message
-                      </button>
-                    </div>
-
-                    <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden"></div>
-                  </form>
-                </div>
-                <!-- Contact Info -->
-                <div class="p-8 md:p-0">
-    <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
-    <ul class="space-y-4 text-lg text-gray-600 dark:text-gray-400">
-        <li><strong>Email:</strong> 
-            <a href="mailto:abhisheks200426@gmail.com" class="text-indigo-600 hover:underline">support@abhinova.com</a>
-        </li>
-        <li><strong>Phone:</strong> +917752842084</li>
-        <li><strong>Social:</strong>
-            <div class="flex space-x-4 mt-2">
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/abhin.ova?igsh=MTFla2p4eDUxd3lwZw==" target="_blank" rel="noopener noreferrer" 
-                   class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-200 transition-colors">
-                    <!-- Instagram SVG Icon -->
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07c3.252.148 4.771 1.691 4.919 4.919.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.251-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.649 0-4.094.015-5.518.083-3.618.175-5.333 1.9-5.508 5.508-.068 1.424-.083 1.87-.083 5.518s.015 4.094.083 5.518c.175 3.618 1.9 5.333 5.508 5.508 1.424.068 1.87.083 5.518.083 3.649 0 4.094-.015 5.518-.083 3.618-.175 5.333-1.9 5.508-5.508.068-1.424.083-1.87.083-5.518s-.015-4.094-.083-5.518c-.175-3.618-1.9-5.333-5.508-5.508-1.424-.068-1.87-.083-5.518-.083zM12 5.836c-3.465 0-6.273 2.808-6.273 6.272s2.808 6.273 6.273 6.273 6.272-2.808 6.272-6.273-2.808-6.272-6.272-6.272zm0 10.3c-2.222 0-4.027-1.805-4.027-4.028s1.805-4.027 4.027-4.027c2.222 0 4.027 1.805 4.027 4.027s-1.805 4.028-4.027 4.028zm6.545-9.332c-.753 0-1.365-.612-1.365-1.365s.612-1.365 1.365-1.365 1.365.612 1.365 1.365-.612 1.365-1.365 1.365z"/>
-                    </svg>
-                </a>
-
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/share/19w9Cp4xag/" target="_blank" rel="noopener noreferrer" 
-                   class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-200 transition-colors">
-                    <!-- Facebook SVG Icon -->
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.872v-6.985h-2.54v-2.897h2.54V9.695c0-2.515 1.492-3.891 3.776-3.891 1.094 0 2.241.195 2.241.195v2.46h-1.266c-1.247 0-1.644.778-1.644 1.579v1.94h2.775l-.446 2.897h-2.329v6.985C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
-                    </svg>
-                </a>
-
-                <!-- Email Icon -->
-                <a href="abhisheks200426@gmail.com" 
-                   class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-200 transition-colors">
-                    <!-- Email SVG Icon -->
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22.25 6.75a.9.9 0 00-.9-.9H2.65a.9.9 0 00-.9.9v10.5a.9.9 0 00.9.9h18.7a.9.9 0 00.9-.9V6.75zM21 8l-8.5 6L4 8m17-3h-1.5L12 11.5 4.5 5H3.5a1.5 1.5 0 00-1.5 1.5V17a1.5 1.5 0 001.5 1.5h17a1.5 1.5 0 001.5-1.5V6.5a1.5 1.5 0 00-1.5-1.5z"/>
-                    </svg>
-                </a>
-            </div>
-        </li>
-    </ul>
-</div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-10 text-center border-t border-gray-200 dark:border-gray-700">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-6 mb-4 text-sm font-medium text-gray-600 dark:text-gray-400">
-                <a href="#home" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
-                <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About Us</a>
-                <a href="#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
-                <a href="#portfolio" class="hover:text-indigo-600 dark:hover:text-indigo-400">Portfolio</a>
-                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
-            </div>
-            <p class="text-gray-500 dark:text-gray-400">&copy; 2025 Abhinova. All rights reserved.</p>
+  <main>
+    <section id="home" class="home-hero">
+      <video class="hero-bg" autoplay muted loop playsinline>
+        <source src="a1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container glass">
+        <h1 class="brand">Abhinova</h1>
+        <p class="lead">Empowering Your Digital Presence</p>
+        <div id="slogan" class="slogan"></div>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#contact" aria-label="Contact Us">
+            <span style="vertical-align:middle;">📩</span> Contact Us
+          </a>
+          <a class="btn" href="team.html" aria-label="Meet Our Team">
+            <span style="vertical-align:middle;">👥</span> Meet Our Team
+          </a>
         </div>
-    </footer>
-
-    <!-- Main JavaScript -->
-    <script>
-        // Smooth Scroll (Lenis)
-        const lenis = new Lenis();
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
-
-        // Scroll-triggered animations (GSAP)
-        gsap.registerPlugin(ScrollTrigger);
-
-        document.querySelectorAll('section').forEach((section, index) => {
-            gsap.from(section, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 80%",
-                    toggleActions: "play none none none"
-                }
-            });
-        });
-
-        // Rotating Tagline
-        const taglines = [
-            "Innovation Simplified",
-            "Creativity Meets Technology",
-            "Your Digital Solution Partner",
-            "Design. Develop. Deliver."
+      </div>
+      <script>
+        // Animated slogan for hero section
+        const slogans = [
+          "Web Development • Graphic Design • Digital Marketing",
+          "Mobile Apps • E-commerce • Social Media Management",
+          "Creative Solutions for Modern Businesses"
         ];
-        const taglineEl = document.getElementById('tagline');
-        let currentTaglineIndex = 0;
-
-        function rotateTagline() {
-            gsap.to(taglineEl, {
-                y: -20,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power2.in",
-                onComplete: () => {
-                    currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
-                    taglineEl.textContent = taglines[currentTaglineIndex];
-                    gsap.fromTo(taglineEl, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" });
-                }
-            });
+        let sloganIndex = 0;
+        const sloganEl = document.getElementById('slogan');
+        function rotateSlogan() {
+          sloganEl.textContent = slogans[sloganIndex];
+          sloganIndex = (sloganIndex + 1) % slogans.length;
         }
-        taglineEl.textContent = taglines[currentTaglineIndex];
-        setInterval(rotateTagline, 3000);
+        rotateSlogan();
+        setInterval(rotateSlogan, 2500);
+      </script>
+    </section>
 
-        
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-heading">About Us</h2>
+        <p class="section-subtext">Abhinova is a digital studio blending creativity and technology to deliver scalable solutions. We design web & mobile applications, craft visual identities, and run marketing strategies that deliver measurable results. Our pragmatic process ensures clear timelines, milestones, and post-launch support.</p>
+      </div>
+    </section>
 
-        // Project Filtering Logic
-        const projectsData = [
-            {
-                title: "Vinci Code Guessing Game",
-                description: "Developed a custom board game with scoring rules, AI mode, and GUI versions (Tkinter, PyGame, Java Swing).",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Vinci+Code+Game"
-            },
-            {
-                title: "Portfolio Website (Flask)",
-                description: "A mystical + professional site with multilingual support, AI chatbot, and personal branding.",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Portfolio+Website"
-            },
-            {
-                title: "Lotto Koyote Publications Website",
-                description: "Spiritual/artistic site with Books, Cards, Media, and Daily Oracle features.",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Lotto+Koyote"
-            },
-            {
-                title: "Jairozon Bookstore Website",
-                description: "Full-stack site for selling educational books with PayPal/card payments and shipping integration.",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Bookstore+Site"
-            },
-            {
-                title: "Pinterest-like Web App",
-                description: "Users can register, upload/manage image-based posts (“pins”), and create boards.",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Pinterest+App"
-            },
-            {
-                title: "E-commerce Admin Dashboard",
-                description: "Product management, order tracking, sales analytics, and real-time notifications.",
-                category: "web-dev",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Admin+Dashboard"
-            },
-            {
-                title: "Abhinova Branding",
-                description: "Logo and business card design for Abhinova, creating a strong brand identity.",
-                category: "design",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Abhinova+Branding"
-            },
-            {
-                title: "Social Media Creatives",
-                description: "Visual branding for projects like Lotto Koyote.",
-                category: "design",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=Social+Media"
-            },
-            {
-                title: "GoFundMe Campaign",
-                description: "GoFundMe campaign copywriting & strategy.",
-                category: "marketing",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=GoFundMe+Campaign"
-            },
-            {
-                title: "SEO and Google Ranking",
-                description: "SEO and Google ranking planning for Abhinova.",
-                category: "marketing",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=SEO+Planning"
-            },
-            {
-                title: "WhatsApp Business Setup",
-                description: "WhatsApp Business Catalogue setup.",
-                category: "marketing",
-                image: "https://placehold.co/600x400/E5E7EB/4B5563?text=WhatsApp+Business"
-            }
-        ];
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-heading">Our Services</h2>
+        <p class="section-subtext">We don't just offer services; we deliver measurable results that propel your business forward. Our dedicated team partners with you to transform challenges into growth, ensuring every solution we provide is strategic, effective, and built to last .</p>
+        <div class="grid services-grid">
+          <div class="card"><div class="img-placeholder"><img src="Web.jpg" alt=""></div><h4>Web Development</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Mobile.jpeg" alt=""></div><h4>Mobile App Development</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Digital.png" alt=""></div><h4>Digital Marketing</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Graphic.jpg" alt=""></div><h4>Graphic Designing</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Social.jpg" alt=""></div><h4>Social Media Management</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Commerce.jpeg" alt=""></div><h4>E-commerce Solution</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Free.jpeg" alt=""></div><h4>Freelancing</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Business.jpeg" alt=""></div><h4>Business Expansison</h4></div>
+        </div>
+      </div>
+    </section>
 
-        const projectsGrid = document.getElementById('projects-grid');
-        const filterButtons = document.querySelectorAll('#filter-buttons button');
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2 class="section-heading">Portfolio</h2>
+        <p class="section-subtext">My expertise lies in taking complex challenges and delivering elegant, working solutions. See how I solve problems beautifully.</p>
+        <div class="grid portfolio-grid">
+          <div class="card"><div class="img-placeholder"><img src="Vinci.png" alt=""></div><h4>Vinci Code Guessing</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Port.png" alt=""></div><h4>Portfolio Website</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Lotto.png" alt=""></div><h4>Lotto Koyoto Publication</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Jai.png" alt=""></div><h4>Jairozon Bookstore</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Pin.jpg" alt=""></div><h4>Pinterest-like Web App</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Admin.png" alt=""></div><h4>E-commerce Admin Dashboard</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Anaemia.png" alt=""></div><h4>Anaemia Prediction Using ML</h4></div>
+          <div class="card"><div class="img-placeholder"><img src="Travel.png" alt=""></div><h4>Travel Website</h4></div>
+        </div>
+      </div>
+    </section>
 
-        function renderProjects(category) {
-            projectsGrid.innerHTML = '';
-            const projectsToRender = category === 'all' ? projectsData : projectsData.filter(p => p.category === category);
-            
-            projectsToRender.forEach(project => {
-                const projectCard = document.createElement('a');
-                projectCard.href = "#";
-                projectCard.className = "block bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300";
-                projectCard.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" class="rounded-t-2xl w-full h-auto object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">${project.description}</p>
-                    </div>
-                `;
-                projectCard.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // A simple, non-alert message box for demo purposes
-                    const message = `You clicked on "${project.title}". A full case study page would be displayed here!`;
-                    const messagebox = document.createElement('div');
-                    messagebox.className = 'fixed inset-0 flex items-center justify-center z-50';
-                    messagebox.innerHTML = `
-                        <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-xl text-center max-w-sm mx-4">
-                            <p class="text-lg font-semibold mb-4">${message}</p>
-                            <button onclick="this.parentElement.parentElement.remove()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg">Close</button>
-                        </div>
-                    `;
-                    document.body.appendChild(messagebox);
-                });
-                projectsGrid.appendChild(projectCard);
-            });
-        }
+    <section id="clients" class="section">
+      <div class="container">
+        <h2 class="section-heading">What Our Clients Say</h2>
+        <p class="section-subtext">Trusted by clients across industries</p>
+        <div class="grid clients-grid">
+          <div class="card">“"Abhinova provided access to top-tier talent, making our hiring process incredibly efficient. The secure payment system and excellent support ensure we can focus entirely on project execution, leading to on-time, high-quality deliverables every time."”</div>
+          <div class="card">"Abhinova changed my freelance career. The platform consistently connects me with high-paying, challenging projects, and I trust their guaranteed, timely payment system. It's the most professional place to work online.</div>
+          <div class="card">"We cut our development costs by 40% and improved project turnaround using Abhinova's vetted talent pool. The streamlined communication and efficient hiring dashboard make finding and managing experts a breeze."</div>
+        </div>
+      </div>
+    </section>
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('border-indigo-500', 'text-indigo-600', 'dark:text-indigo-400', 'bg-indigo-50', 'dark:bg-indigo-900'));
-                filterButtons.forEach(btn => btn.classList.add('border-gray-300', 'text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-800'));
-                
-                button.classList.remove('border-gray-300', 'text-gray-600', 'dark:text-gray-400', 'hover:bg-gray-100', 'dark:hover:bg-gray-800');
-                button.classList.add('border-indigo-500', 'text-indigo-600', 'dark:text-indigo-400', 'bg-indigo-50', 'dark:bg-indigo-900');
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-heading">Contact</h2>
+        <p class="section-subtext">Your feedback is the starting point for our next big idea. Don't hesitate, connect today.</p>
+        <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="855f0419-35c5-40fc-9ebd-ab8300b38b56">
+          <input name="name" type="text" placeholder="Your name" required>
+          <input name="email" type="email" placeholder="Your email" required>
+          <input name="phone" type="tel" placeholder="Your mobile number" required>
+          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+          <div class="center-row">
+            <button type="submit" class="btn primary">Send Message</button>
+            <a class="btn donate" href="PAYPAL_LINK_HERE" target="_blank" rel="noopener">Donate</a>
+          </div>
+        </form>
 
-                const filter = button.dataset.filter;
-                renderProjects(filter);
-            });
-        });
+        <div class="contact-info center-text">
+          <p>📞 +91 7752842081</p>
+          <p>✉ info@abhinova.com</p>
+          <p class="socials">🔗 <a href="https://www.facebook.com/share/19w9Cp4xag/" target="_blank">Facebook</a> • <a href="https://www.instagram.com/abhin.ova?igsh=MTFla2p4eDUxd3lwZw==" target="_blank">Instagram</a> • <a href="#" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        // Initial render of all projects
-        renderProjects('all');
-    </script>
+  <!-- Simple Abhinova Footer -->
+<footer style="background:#222; color:#fff; text-align:center; padding:20px; font-family:Arial, sans-serif;">
+  <h3 style="margin:5px 0;">Abhinova</h3>
+  <p style="margin:5px 0;">Web Development | Digital Marketing | Graphic Design | Branding | Ads</p>
+  <p style="margin:5px 0;">📞 +91 77528 42084 | 📧 abhisheks200426@gmail.com</p>
+  <p style="margin:10px 0 0;">© 2025 Abhinova. All Rights Reserved.</p>
+</footer>
+
+
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <div class="chatbot-header">
+      <span>🤖 Abhinova Chat</span>
+      <button id="chatbot-close" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="chatbot-message bot">Hi! 👋 How can we help you today?</div>
+    </div>
+    <form id="chatbot-form" class="chatbot-form" autocomplete="off">
+      <input type="text" id="chatbot-input" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open Chatbot">💬</button>
+
+  <script src="script.js"></script>
+  <script>
+    // Responsive Navbar
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+
+    // Theme Toggle (improved for text clarity)
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // Chatbot logic
+    const chatbotWidget = document.getElementById('chatbot-widget');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotForm = document.getElementById('chatbot-form');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    chatbotToggle.onclick = () => chatbotWidget.classList.add('open');
+    chatbotClose.onclick = () => chatbotWidget.classList.remove('open');
+
+    chatbotForm.onsubmit = (e) => {
+      e.preventDefault();
+      const userMsg = chatbotInput.value.trim();
+      if (!userMsg) return;
+      chatbotMessages.innerHTML += `<div class="chatbot-message user">${userMsg}</div>`;
+      chatbotInput.value = '';
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+      // Simple bot reply (customize as needed)
+      setTimeout(() => {
+        let reply = "Thank you for reaching out! We'll get back to you soon.";
+        if (/web|site|website/i.test(userMsg)) reply = "We offer modern, responsive web development. Would you like a quote?";
+        if (/graphic|design/i.test(userMsg)) reply = "Our graphic design team can create stunning visuals for your brand!";
+        if (/contact|email|phone/i.test(userMsg)) reply = "You can contact us at info@abhinova.com or +91 7752842081.";
+        chatbotMessages.innerHTML += `<div class="chatbot-message bot">${reply}</div>`;
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }, 700);
+    };
+  </script>
 </body>
 </html>
-
