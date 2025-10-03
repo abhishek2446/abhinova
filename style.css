@@ -49,6 +49,59 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
   transition: max-height 0.3s;
 }
+/* Enhanced Glassmorphism for hero and cards */
+.glass, .card {
+  background: rgba(255, 255, 255, 0.15); /* slightly more transparent */
+  border-radius: 18px;
+  box-shadow: 0 7px 27px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);  /* stronger blur for depth */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Add subtle gradient overlay inside glass */
+.glass::before, .card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Hover animation for cards */
+.card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px) scale(1.03);
+}
+
+.card:hover::before {
+  transform: rotate(0deg);
+  opacity: 0.5;
+}
+
+/* Hero content wrapper with extra depth */
+.hero-content.glass {
+  padding: 3rem 2rem;
+  border-radius: 32px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35), 0 6px 24px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+}
+
+/* Optional: Neon glow effect for hero content */
+.hero-content.glass h1.brand, .hero-content.glass .slogan {
+  text-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 16px rgba(255,255,255,0.4), 0 4px 16px rgba(0,0,0,0.6);
+}
+
 .nav-links a {
   padding: 0.5rem 0.8rem;
   border-radius: 6px;
