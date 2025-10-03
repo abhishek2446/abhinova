@@ -526,10 +526,35 @@ img {
   font-weight: 700;
 }
 
-.highlight-card p {
-  margin: 0;
-  color: #555;
-  font-size: 1em;
+/* --- Fixed size and centering for card images --- */
+.img-placeholder {
+  width: 180px;
+  height: 150px;
+  margin: 0 auto 1rem auto;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #e0e7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Larger headings under images --- */
+.card h4 {
+  margin-top: 0.7rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 /* --- Chatbot Styles --- */
