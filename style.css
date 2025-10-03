@@ -144,9 +144,9 @@ img { max-width: 100%; display: block; }
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(120deg,rgba(43,108,176,0.55) 0%,rgba(110,231,183,0.35) 100%);
+  
   mix-blend-mode: multiply;
-  opacity: 0.85;
+  
   z-index: 1;
 }
 .hero-content {
