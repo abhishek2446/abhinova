@@ -704,6 +704,108 @@ img {
   color: #222;
 }
 
+/* --- Contact Section Alignment --- */
+.contact-form {
+  max-width: 420px;
+  margin: 0 auto 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #2b6cb022;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9em 1em;
+  border-radius: 10px;
+  border: 1.5px solid #e0e7ef;
+  font-size: 1rem;
+  background: #f8fafc;
+  resize: none;
+  transition: border 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1.5px solid #2b6cb0;
+  outline: none;
+}
+
+.contact-form .center-row {
+  margin-top: 0.5rem;
+}
+
+.contact-info {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #2b6cb011;
+  padding: 1.2rem 1rem;
+  font-size: 1.08rem;
+  color: #222;
+}
+
+.contact-info p {
+  margin: 0.4em 0;
+  word-break: break-all;
+}
+
+.contact-info .socials a {
+  color: #2b6cb0;
+  font-weight: 600;
+  margin: 0 0.2em;
+  transition: color 0.2s;
+}
+
+.contact-info .socials a:hover {
+  color: #ff7e5f;
+}
+
+/* --- Card Grid Layout --- */
+.grid,
+.services-grid,
+.portfolio-grid,
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Responsive: stack cards in one column on small screens */
+@media (max-width: 900px) {
+  .grid,
+  .services-grid,
+  .portfolio-grid,
+  .clients-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 600px) {
+  .grid,
+  .services-grid,
+  .portfolio-grid,
+  .clients-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .contact-form,
+  .contact-info {
+    max-width: 98vw;
+    padding: 1.1rem 0.5rem;
+  }
+}
+
 @media (max-width: 900px) {
   .nav-links {
     gap: 1rem;
