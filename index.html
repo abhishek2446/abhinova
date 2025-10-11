@@ -1,278 +1,909 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Abhinova</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="LOGO.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinova - Digital Solutions</title>
+  <meta name="description" content="Abhinova - Leading web design agency in India offering professional web development, mobile apps, digital marketing & branding services. Get your business digitally elevated.">
+  <meta name="keywords" content="best web design agency india, web development company, mobile app development, digital marketing agency, graphic design services, abhinova">
+  <meta property="og:title" content="Abhinova - Best Web Design Agency India">
+  <meta property="og:description" content="Transform your digital vision into reality with cutting-edge web development, mobile apps, and digital marketing solutions.">
+  <meta property="og:image" content="LOGO.jpg">
+  <meta property="og:url" content="https://abhinova.com">
+    <link rel="icon" type="image/x-icon" href="LOGO.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-mode">
-  <header class="navbar">
-    <div class="nav-inner container">
+<body class="dark-mode">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-inner">
       <a href="#home" class="logo-link">
-        <img src="LOGO.jpg" alt="Abhinova Logo" class="logo-img" />
+        <img src="LOGO.jpg" alt="Abhinova Logo" class="logo-img animated-logo">
         <span class="logo-text">Abhinova</span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
+      
+      <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="team.html">Team</a>
-        <a href="#clients">Clients</a>
+        <a href="#process">Process</a>
         <a href="#contact">Contact</a>
-        <a href="join.html">Join Us</a>
-      </nav>
+      </div>
+      
       <div class="nav-actions">
-        <a class="donate-link" href="https://www.paypal.me/AbhishekDevelopers" target="_blank" rel="noopener">Donate</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
-          <span></span><span></span><span></span>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        <a href="#contact" class="btn-cta">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section id="home" class="home-hero">
-      <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="a1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline>
+        <source src="a1.mp4" type="video/mp4">
       </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content hero-box">
-        <h1 class="brand" style="font-size:2.8rem;letter-spacing:2px;">
-          Find the Perfect <span class="highlight">Digital Solution</span> for Your Business
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="brand">✨ Abhinova ✨</span>
+          <span class="tagline">Digital Excellence 🌟</span>
         </h1>
-        <p class="lead" style="font-size:1.3rem;margin-bottom:1.5rem;">
-          Hire top talent for <span id="animated-slogan" class="animated-slogan"></span>
+        <p class="hero-description">
+          Transforming businesses through innovative technology and creative solutions.
         </p>
-        <form class="hero-search" onsubmit="event.preventDefault();window.location='#services';">
-          <input type="text" placeholder="What service are you looking for? (e.g. web design)" aria-label="Search services">
-          <button type="submit"><span>🔍</span> Search</button>
-        </form>
-        <div class="hero-ctas" style="margin-top:1.5rem;">
-          <a class="btn btn-main" href="#services" aria-label="Explore Services">
-            <span>🚀</span> Explore Services
-          </a>
-          <a class="btn btn-accent" href="#contact" aria-label="Get a Quote">
-            <span>💬</span> Get a Quote
-          </a>
+        <div class="hero-cta">
+          <a href="#pricing" class="btn btn-primary">✨ Request Proposal ✨</a>
+          <a href="https://calendly.com/abhinova/consultation" target="_blank" class="btn btn-secondary">🌟 Schedule Consultation 🌟</a>
         </div>
-        <div class="hero-trusted">
-          <span>Trusted by 100+ businesses & startups</span>
+
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number counter" data-target="150">0</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number counter" data-target="120">0</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number counter" data-target="5">0</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number counter" data-target="98">0</span>
+          <span class="stat-plus">%</span>
+          <span class="stat-label">Client Satisfaction</span>
         </div>
       </div>
-      <script>
-        // Animated slogan for hero section
-        const sloganWords = [
-          "Web Development",
-          "App Development",
-          "Graphic Design",
-          "Digital Marketing",
-          "Branding",
-          "E-commerce",
-          "Social Media"
-        ];
-        let sloganIdx = 0;
-        const animatedSlogan = document.getElementById('animated-slogan');
-        function rotateSlogan() {
-          animatedSlogan.textContent = sloganWords[sloganIdx];
-          sloganIdx = (sloganIdx + 1) % sloganWords.length;
-        }
-        rotateSlogan();
-        setInterval(rotateSlogan, 1800);
-      </script>
-    </section>
+    </div>
+  </section>
 
-    <!-- Service Highlights (like Fiverr/Freelancer) -->
-    <section class="service-highlights">
-      <div class="container highlights-grid">
-        <div class="highlight-card">
-          <span class="highlight-icon">✅</span>
-          <div>
-            <h4>Vetted Experts</h4>
-            <p>Work with top-rated, verified professionals.</p>
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">✨ About Abhinova ✨</h2>
+        <p class="section-subtitle">
+          We're a passionate team of digital innovators dedicated to delivering 
+          exceptional results that drive your business forward.
+        </p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>🌟 Our Mission 🌟</h3>
+          <p>
+            At Abhinova, we don't just offer services; we deliver measurable results that 
+            propel your business forward. Our dedicated team partners with you to transform 
+            challenges into growth opportunities, ensuring every solution we provide is 
+            strategic, effective, and built to last.
+          </p>
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">✨🚀✨</div>
+              <div class="feature-text">
+                <h4>Innovation First</h4>
+                <p>Cutting-edge solutions using latest technologies</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">✨🎯✨</div>
+              <div class="feature-text">
+                <h4>Results Driven</h4>
+                <p>Focused on delivering measurable business outcomes</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">✨🤝✨</div>
+              <div class="feature-text">
+                <h4>Partnership Approach</h4>
+                <p>We work as an extension of your team</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">✨⚡✨</div>
+              <div class="feature-text">
+                <h4>Agile Delivery</h4>
+                <p>Fast, iterative development with continuous feedback</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="highlight-card">
-          <span class="highlight-icon">🔒</span>
-          <div>
-            <h4>Secure Payments</h4>
-            <p>Pay safely and only when you’re satisfied.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Section -->
+  <section class="section tech-stack">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">✨ Technologies We Master ✨</h2>
+        <p class="section-subtitle">
+          Cutting-edge technologies powering modern digital solutions
+        </p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-category">
+          <h3>🌐 Frontend</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+              <span>HTML5</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+              <span>CSS3</span>
+            </div>
           </div>
         </div>
-        <div class="highlight-card">
-          <span class="highlight-icon">⚡</span>
-          <div>
-            <h4>Fast Delivery</h4>
-            <p>Get your project done on time, every time.</p>
+        
+        <div class="tech-category">
+          <h3>⚙️ Backend</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+              <span>Node.js</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+              <span>PHP</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+              <span>Java</span>
+            </div>
           </div>
         </div>
-        <div class="highlight-card">
-          <span class="highlight-icon">💬</span>
-          <div>
-            <h4>24/7 Support</h4>
-            <p>We’re here to help, anytime you need us.</p>
+        
+        <div class="tech-category">
+          <h3>🗄️ Database</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+              <span>MongoDB</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+              <span>MySQL</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+              <span>PostgreSQL</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+              <span>Firebase</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>☁️ Cloud & DevOps</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+              <span>Docker</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+              <span>Git</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
+              <span>Google Cloud</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>🎨 Design & UI/UX</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+              <span>Figma</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+              <span>Photoshop</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">
+              <span>Illustrator</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva">
+              <span>Canva</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>📱 Mobile & Frameworks</h3>
+          <div class="tech-icons">
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
+              <span>Flutter</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
+              <span>React Native</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js">
+              <span>Next.js</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js">
+              <span>Vue.js</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-heading">About Us</h2>
-        <p class="section-subtext">Abhinova is a digital studio blending creativity and technology to deliver scalable solutions. We design web & mobile applications, craft visual identities, and run marketing strategies that deliver measurable results. Our pragmatic process ensures clear timelines, milestones, and post-launch support.</p>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <h2 class="section-heading">Our Services</h2>
-        <p class="section-subtext">We don't just offer services; we deliver measurable results that propel your business forward. Our dedicated team partners with you to transform challenges into growth, ensuring every solution we provide is strategic, effective, and built to last .</p>
-        <div class="grid services-grid">
-          <div class="card"><div class="img-placeholder"><img src="Web.jpg" alt=""></div><h4>Web Development</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Mobile.jpeg" alt=""></div><h4>Mobile App Development</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Digital.png" alt=""></div><h4>Digital Marketing</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Graphic.jpg" alt=""></div><h4>Graphic Designing</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Social.jpg" alt=""></div><h4>Social Media Management</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Commerce.jpeg" alt=""></div><h4>E-commerce Solution</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Free.jpeg" alt=""></div><h4>Freelancing</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Business.jpeg" alt=""></div><h4>Business Expansison</h4></div>
+  <!-- Client Logos Section -->
+  <section class="section client-logos">
+    <div class="container">
+      <div class="trusted-by">
+        <h3>✨ Trusted by Leading Brands ✨</h3>
+        <div class="client-grid">
+          <div class="client-logo">TechStart</div>
+          <div class="client-logo">Digital Inc</div>
+          <div class="client-logo">AppVenture</div>
+          <div class="client-logo">WebCorp</div>
+          <div class="client-logo">StartupX</div>
+          <div class="client-logo">InnovateCo</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="portfolio" class="section">
-      <div class="container">
-        <h2 class="section-heading">Portfolio</h2>
-        <p class="section-subtext">My expertise lies in taking complex challenges and delivering elegant, working solutions. See how I solve problems beautifully.</p>
-        <div class="grid portfolio-grid">
-          <div class="card"><div class="img-placeholder"><img src="Vinci.png" alt=""></div><h4>Vinci Code Guessing</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Port.png" alt=""></div><h4>Portfolio Website</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Lotto.png" alt=""></div><h4>Lotto Koyoto Publication</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Jai.png" alt=""></div><h4>Jairozon Bookstore</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Pin.jpg" alt=""></div><h4>Pinterest-like Web App</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Admin.png" alt=""></div><h4>E-commerce Admin Dashboard</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Anaemia.png" alt=""></div><h4>Anaemia Prediction Using ML</h4></div>
-          <div class="card"><div class="img-placeholder"><img src="Travel.png" alt=""></div><h4>Travel Website</h4></div>
+  <!-- Services Section -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">✨ Our Services ✨</h2>
+        <p class="section-subtitle">
+          Comprehensive digital solutions tailored to your business needs
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Web.jpg" alt="Web Development">
+          </div>
+          <h3>Web Development</h3>
+          <p>Modern, responsive websites built with the latest technologies for optimal performance and user experience.</p>
+          <ul class="service-features">
+            <li>Responsive Design</li>
+            <li>SEO Optimized</li>
+            <li>Fast Loading</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Mobile.jpeg" alt="Mobile App Development">
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform mobile applications that engage users and drive business growth.</p>
+          <ul class="service-features">
+            <li>iOS & Android</li>
+            <li>Cross-Platform</li>
+            <li>User-Centric Design</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Digital.png" alt="Digital Marketing">
+          </div>
+          <h3>Digital Marketing</h3>
+          <p>Strategic digital marketing campaigns that increase visibility and drive qualified leads to your business.</p>
+          <ul class="service-features">
+            <li>SEO & SEM</li>
+            <li>Social Media</li>
+            <li>Content Strategy</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Graphic.jpg" alt="Graphic Design">
+          </div>
+          <h3>Graphic Design</h3>
+          <p>Creative visual solutions that communicate your brand message effectively and leave lasting impressions.</p>
+          <ul class="service-features">
+            <li>Brand Identity</li>
+            <li>Print Design</li>
+            <li>Digital Graphics</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Social.jpg" alt="Social Media Management">
+          </div>
+          <h3>Social Media Management</h3>
+          <p>Comprehensive social media strategies that build communities and drive engagement across all platforms.</p>
+          <ul class="service-features">
+            <li>Content Creation</li>
+            <li>Community Management</li>
+            <li>Analytics & Reporting</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="Commerce.jpeg" alt="E-commerce Solutions">
+          </div>
+          <h3>E-commerce Solutions</h3>
+          <p>Complete e-commerce platforms that provide seamless shopping experiences and drive online sales.</p>
+          <ul class="service-features">
+            <li>Custom Platforms</li>
+            <li>Payment Integration</li>
+            <li>Inventory Management</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="clients" class="section">
-      <div class="container">
-        <h2 class="section-heading">What Our Clients Say</h2>
-        <p class="section-subtext">Trusted by clients across industries</p>
-        <div class="grid clients-grid">
-          <div class="card">“"Abhinova provided access to top-tier talent, making our hiring process incredibly efficient. The secure payment system and excellent support ensure we can focus entirely on project execution, leading to on-time, high-quality deliverables every time."”</div>
-          <div class="card">"Abhinova changed my freelance career. The platform consistently connects me with high-paying, challenging projects, and I trust their guaranteed, timely payment system. It's the most professional place to work online.</div>
-          <div class="card">"We cut our development costs by 40% and improved project turnaround using Abhinova's vetted talent pool. The streamlined communication and efficient hiring dashboard make finding and managing experts a breeze."</div>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Portfolio</h2>
+        <p class="section-subtitle">
+          Showcasing our expertise through successful project deliveries
+        </p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Vinci.png" alt="Vinci Code Guessing">
+            <div class="portfolio-overlay">
+              <h4>Vinci Code Guessing</h4>
+              <p>Interactive web application</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Port.png" alt="Portfolio Website">
+            <div class="portfolio-overlay">
+              <h4>Portfolio Website</h4>
+              <p>Professional portfolio design</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Lotto.png" alt="Lotto Koyoto Publication">
+            <div class="portfolio-overlay">
+              <h4>Lotto Koyoto Publication</h4>
+              <p>Publishing platform</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Jai.png" alt="Jairozon Bookstore">
+            <div class="portfolio-overlay">
+              <h4>Jairozon Bookstore</h4>
+              <p>E-commerce bookstore</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Pin.jpg" alt="Pinterest-like Web App">
+            <div class="portfolio-overlay">
+              <h4>Pinterest-like Web App</h4>
+              <p>Social media platform</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="Admin.png" alt="E-commerce Admin Dashboard">
+            <div class="portfolio-overlay">
+              <h4>E-commerce Admin Dashboard</h4>
+              <p>Management system</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-heading">Contact</h2>
-        <p class="section-subtext">Your feedback is the starting point for our next big idea. Don't hesitate, connect today.</p>
+  <!-- Pricing Section -->
+  <section id="pricing" class="section pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-subtitle">Choose the perfect plan for your project needs</p>
+        <div class="currency-switcher">
+          <button class="currency-btn active" data-currency="usd">USD</button>
+          <button class="currency-btn" data-currency="inr">INR</button>
+          <button class="currency-btn" data-currency="gbp">GBP</button>
+        </div>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Basic</h3>
+            <div class="price">
+              <span class="currency-symbol">$</span>
+              <span class="amount" data-usd="100" data-inr="8500" data-gbp="80">100</span>
+            </div>
+            <p>Perfect for small projects</p>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Landing Page Design</li>
+            <li>✓ Responsive Layout</li>
+            <li>✓ Basic SEO Setup</li>
+            <li>✓ 2 Revisions</li>
+            <li>✓ 7-Day Delivery</li>
+          </ul>
+          <button class="btn btn-primary pricing-btn" data-plan="basic">Get Started</button>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3>Standard</h3>
+            <div class="price">
+              <span class="currency-symbol">$</span>
+              <span class="amount" data-usd="200" data-inr="17000" data-gbp="160">200</span>
+            </div>
+            <p>Great for growing businesses</p>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ Multi-Page Website</li>
+            <li>✓ Custom Design</li>
+            <li>✓ Advanced SEO</li>
+            <li>✓ Contact Forms</li>
+            <li>✓ 5 Revisions</li>
+            <li>✓ 14-Day Delivery</li>
+          </ul>
+          <button class="btn btn-primary pricing-btn" data-plan="standard">Get Started</button>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Premium</h3>
+            <div class="price">
+              <span class="currency-symbol">$</span>
+              <span class="amount" data-usd="300" data-inr="25500" data-gbp="240">300</span>
+            </div>
+            <p>Complete digital solution</p>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ E-commerce Platform</li>
+            <li>✓ Payment Integration</li>
+            <li>✓ Admin Dashboard</li>
+            <li>✓ Mobile App Design</li>
+            <li>✓ Unlimited Revisions</li>
+            <li>✓ 21-Day Delivery</li>
+          </ul>
+          <button class="btn btn-primary pricing-btn" data-plan="premium">Get Started</button>
+        </div>
+      </div>
+      
+      <!-- Quote Calculator -->
+      <div class="quote-calculator">
+        <h3>Get Instant Quote</h3>
+        <div class="calculator-form">
+          <select id="serviceType">
+            <option value="">Select Service</option>
+            <option value="100">Landing Page</option>
+            <option value="200">Business Website</option>
+            <option value="300">E-commerce Store</option>
+            <option value="150">Mobile App</option>
+            <option value="80">Logo Design</option>
+          </select>
+          <select id="timeline">
+            <option value="1">Rush (1-3 days) +50%</option>
+            <option value="0.8">Standard (1-2 weeks)</option>
+            <option value="0.7">Flexible (3-4 weeks) -30%</option>
+          </select>
+          <div class="quote-result">
+            <span>Estimated Cost: </span>
+            <span id="quoteAmount">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="section process">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-subtitle">Simple steps to bring your vision to life</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Discuss</h3>
+            <p>We understand your requirements, goals, and vision for the project.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Design</h3>
+            <p>Create stunning mockups and prototypes that align with your brand.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Deliver</h3>
+            <p>Develop and launch your project with pixel-perfect precision.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Support</h3>
+            <p>Ongoing maintenance and support to keep your project running smoothly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section id="case-studies" class="section case-studies">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Success Stories</h2>
+        <p class="section-subtitle">How we deliver exceptional results for our clients</p>
+      </div>
+      <div class="case-studies-grid">
+        <div class="case-study-card">
+          <div class="case-study-image">
+            <img src="Jai.png" alt="Jairozon Bookstore" loading="lazy">
+          </div>
+          <div class="case-study-content">
+            <h3>Jairozon Bookstore</h3>
+            <p class="case-study-challenge">Challenge: Build a complete e-commerce platform in 10 days</p>
+            <p class="case-study-solution">Solution: Custom React.js frontend with Node.js backend</p>
+            <div class="case-study-results">
+              <span class="result-item">40% faster loading</span>
+              <span class="result-item">200+ books sold</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <div class="case-study-image">
+            <img src="Admin.png" alt="E-commerce Dashboard" loading="lazy">
+          </div>
+          <div class="case-study-content">
+            <h3>E-commerce Dashboard</h3>
+            <p class="case-study-challenge">Challenge: Complex inventory management system</p>
+            <p class="case-study-solution">Solution: Real-time dashboard with analytics</p>
+            <div class="case-study-results">
+              <span class="result-item">60% time saved</span>
+              <span class="result-item">99.9% uptime</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="section social-proof">
+    <div class="container">
+      <div class="social-proof-content">
+        <div class="live-stats">
+          <div class="stat-item">
+            <span class="stat-number counter" data-target="7" id="projectsCompleted">0</span>
+            <span class="stat-label">projects completed this week</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number counter" data-target="120">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">happy clients worldwide</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number counter" data-target="24">0</span>
+            <span class="stat-label">countries served</span>
+          </div>
+        </div>
+        <div class="trust-badges">
+          <div class="badge">✓ SSL Secure</div>
+          <div class="badge">✓ Verified Freelancer</div>
+          <div class="badge">✓ 24/7 Support</div>
+          <div class="badge">✓ Money Back Guarantee</div>
+        </div>
+        <div class="social-badges">
+          <div class="badge">⭐⭐⭐⭐⭐ Google Reviews</div>
+          <div class="badge">🏆 Top Rated on Upwork</div>
+          <div class="badge">💎 Fiverr Pro Verified</div>
+          <div class="badge">🎯 Clutch 5-Star Agency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Trusted by clients across industries</p>
+      </div>
+      <div class="testimonials-carousel">
+        <div class="testimonials-track">
+          <div class="testimonial-card active">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"Abhinova delivered our e-commerce platform in record time. Sales increased by 150% in the first quarter!"</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <span>CEO, TechStart Inc.</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"They transformed our outdated website into a modern, fast-loading platform that converts visitors into customers."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Michael Chen</h4>
+                <span>Founder, Digital Innovations</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>"The mobile app has over 10,000 downloads and 4.8-star rating. Professional development process throughout."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Emily Rodriguez</h4>
+                <span>CTO, AppVenture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev">‹</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="carousel-btn next">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">✨ Get In Touch ✨</h2>
+        <p class="section-subtitle">
+          Ready to start your next project? Let's discuss how we can help you achieve your goals.
+        </p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p>+91 7752842084</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>abhishek@abhinova.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-details">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/share/19w9Cp4xag/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/abhin.ova?igsh=MTFla2p4eDUxd3lwZw==" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/abhishek-shukla-prayagraj" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="855f0419-35c5-40fc-9ebd-ab8300b38b56">
-          <input name="name" type="text" placeholder="Your name" required>
-          <input name="email" type="email" placeholder="Your email" required>
-          <input name="phone" type="tel" placeholder="Your mobile number" required>
-          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-          <div class="center-row">
-            <button type="submit" class="btn primary">Send Message</button>
-            <a class="btn donate" href="https://www.paypal.me/AbhishekDevelopers" target="_blank" rel="noopener">Donate</a>
+          
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
           </div>
+          
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+          </div>
+          
+          <div class="form-group">
+            <select name="service" required>
+              <option value="">Select Service</option>
+              <option value="web-development">Web Development</option>
+              <option value="mobile-app">Mobile App Development</option>
+              <option value="digital-marketing">Digital Marketing</option>
+              <option value="graphic-design">Graphic Design</option>
+              <option value="social-media">Social Media Management</option>
+              <option value="ecommerce">E-commerce Solutions</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <a href="https://wa.me/917752842084?text=Hi%20Abhinova!%20I'm%20interested%20in%20your%20services." target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
+          </div>
+          
+          <div id="formStatus" class="form-status"></div>
         </form>
+      </div>
+    </div>
+  </section>
 
-        <div class="contact-info center-text">
-          <p>📞 +91 7752842081</p>
-          <p>✉ info@abhinova.com</p>
-          <p class="socials">🔗 <a href="https://www.facebook.com/share/19w9Cp4xag/" target="_blank">Facebook</a> • <a href="https://www.instagram.com/abhin.ova?igsh=MTFla2p4eDUxd3lwZw==" target="_blank">Instagram</a> • <a href="#" target="_blank">LinkedIn</a></p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Abhinova</h3>
+          <p>Digital Solutions Agency</p>
+        </div>
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Web Development</li>
+            <li>Mobile Apps</li>
+            <li>Digital Marketing</li>
+            <li>Graphic Design</li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>📞 +91 77528 42084</p>
+          <p>📧 abhisheks200426@gmail.com</p>
         </div>
       </div>
-    </section>
-  </main>
-
-  <!-- Simple Abhinova Footer -->
-<footer style="background:#222; color:#fff; text-align:center; padding:20px; font-family:Arial, sans-serif;">
-  <h3 style="margin:5px 0;">Abhinova</h3>
-  <p style="margin:5px 0;">Web Development | Digital Marketing | Graphic Design | Branding | Ads</p>
-  <p style="margin:5px 0;">📞 +91 77528 42084 | 📧 abhisheks200426@gmail.com</p>
-  <p style="margin:10px 0 0;">© 2025 Abhinova. All Rights Reserved.</p>
-</footer>
-
+      <div class="footer-bottom">
+        <p>&copy; 2025 Abhinova. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Chatbot Widget -->
   <div id="chatbot-widget" class="chatbot-widget">
     <div class="chatbot-header">
-      <span>🤖 Abhinova Chat</span>
+      <span>🤖 Abhinova Assistant</span>
       <button id="chatbot-close" aria-label="Close Chat">&times;</button>
     </div>
     <div class="chatbot-messages" id="chatbot-messages">
       <div class="chatbot-message bot">Hi! 👋 How can we help you today?</div>
     </div>
-    <form id="chatbot-form" class="chatbot-form" autocomplete="off">
-      <input type="text" id="chatbot-input" placeholder="Type your message..." required />
+    <form id="chatbot-form" class="chatbot-form">
+      <input type="text" id="chatbot-input" placeholder="Type your message..." required>
       <button type="submit">Send</button>
     </form>
   </div>
   <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open Chatbot">💬</button>
 
+  <!-- Newsletter Popup -->
+  <div id="newsletter-popup" class="newsletter-popup">
+    <div class="popup-content">
+      <button class="popup-close" id="popup-close">&times;</button>
+      <h3>Join 100+ Businesses Growing with Abhinova</h3>
+      <p>Get exclusive tips, trends, and special offers delivered to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/917752842084?text=Hi%20Abhinova!%20I'm%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.488"/>
+    </svg>
+  </a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Responsive Navbar
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-    });
-
-    // REMOVE or COMMENT OUT this block if you don't have a theme toggle button!
-    // const themeToggle = document.getElementById('theme-toggle');
-    // const body = document.body;
-    // themeToggle.addEventListener('click', () => {
-    //   body.classList.toggle('dark-mode');
-    //   body.classList.toggle('light-mode');
-    //   themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    // });
-
-    // Chatbot logic
-    const chatbotWidget = document.getElementById('chatbot-widget');
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotForm = document.getElementById('chatbot-form');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-
-    chatbotToggle.onclick = () => chatbotWidget.classList.add('open');
-    chatbotClose.onclick = () => chatbotWidget.classList.remove('open');
-
-    chatbotForm.onsubmit = (e) => {
-      e.preventDefault();
-      const userMsg = chatbotInput.value.trim();
-      if (!userMsg) return;
-      chatbotMessages.innerHTML += `<div class="chatbot-message user">${userMsg}</div>`;
-      chatbotInput.value = '';
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-      // Simple bot reply (customize as needed)
-      setTimeout(() => {
-        let reply = "Thank you for reaching out! We'll get back to you soon.";
-        if (/web|site|website/i.test(userMsg)) reply = "We offer modern, responsive web development. Would you like a quote?";
-        if (/graphic|design/i.test(userMsg)) reply = "Our graphic design team can create stunning visuals for your brand!";
-        if (/contact|email|phone/i.test(userMsg)) reply = "You can contact us at info@abhinova.com or +91 7752842081.";
-        chatbotMessages.innerHTML += `<div class="chatbot-message bot">${reply}</div>`;
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }, 700);
-    };
-  </script>
 </body>
 </html>
