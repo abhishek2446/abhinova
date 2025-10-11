@@ -1,35 +1,50 @@
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize AOS if available
+  // Initialize AOS if available with mobile optimizations
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 800,
+      duration: window.innerWidth < 768 ? 400 : 800,
       easing: 'ease-in-out',
       once: true,
-      offset: 100
+      offset: window.innerWidth < 768 ? 50 : 100,
+      disable: function() {
+        return window.innerWidth < 480 && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
     });
   }
 
-  // Navbar scroll effect
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-      navbar.style.backdropFilter = 'blur(20px)';
-    } else {
-      navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-      navbar.style.backdropFilter = 'blur(10px)';
-    }
-  });
+  // Mobile viewport height fix
+  function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
 
-  // Mobile navigation
+  // Navbar scroll effect (moved to mobile optimizations for better performance)
+
+  // Mobile navigation with improved touch handling
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    // Prevent body scroll when menu is open
+    const toggleMenu = () => {
+      const isOpen = navLinks.classList.contains('open');
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('open');
+      
+      // Prevent body scroll on mobile when menu is open
+      if (window.innerWidth <= 768) {
+        document.body.style.overflow = isOpen ? 'auto' : 'hidden';
+      }
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      toggleMenu();
     });
 
     // Close mobile menu when clicking on a link
@@ -37,7 +52,26 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         hamburger.classList.remove('open');
+        document.body.style.overflow = 'auto';
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
     });
   }
 
@@ -167,20 +201,97 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize counter animations
   initCounterAnimations();
+  
+  // Initialize mobile optimizations
+  initMobileOptimizations();
 });
 
-// Testimonials Carousel
+// Mobile optimizations
+function initMobileOptimizations() {
+  // Optimize scroll performance on mobile
+  let ticking = false;
+  
+  function updateScrollEffects() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        navbar.style.backdropFilter = 'blur(20px)';
+      } else {
+        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        navbar.style.backdropFilter = 'blur(10px)';
+      }
+    }
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollEffects);
+      ticking = true;
+    }
+  }
+  
+  // Use passive scroll listener for better performance
+  window.addEventListener('scroll', requestTick, { passive: true });
+  
+  // Improve form interactions on mobile
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+    });
+  });
+  
+  // Optimize chatbot for mobile
+  const chatbotWidget = document.getElementById('chatbot-widget');
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  
+  if (chatbotWidget && chatbotToggle) {
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWidget.classList.add('open');
+      if (window.innerWidth <= 768) {
+        document.body.style.overflow = 'hidden';
+      }
+    });
+    
+    const chatbotClose = document.getElementById('chatbot-close');
+    if (chatbotClose) {
+      chatbotClose.addEventListener('click', () => {
+        chatbotWidget.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      });
+    }
+  }
+  
+  // Handle orientation change
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      window.scrollTo(0, window.scrollY);
+    }, 500);
+  });
+}
+
+// Testimonials Carousel with touch support
 let currentTestimonial = 0;
 const testimonials = document.querySelectorAll('.testimonial-card');
 const dots = document.querySelectorAll('.dot');
+let touchStartX = 0;
+let touchEndX = 0;
 
 function initTestimonialsCarousel() {
   if (testimonials.length === 0) return;
   
-  // Auto-rotate testimonials
-  setInterval(() => {
-    moveCarousel(1);
-  }, 5000);
+  // Auto-rotate testimonials (pause on mobile)
+  if (window.innerWidth > 768) {
+    setInterval(() => {
+      moveCarousel(1);
+    }, 5000);
+  }
   
   // Add click events to carousel buttons
   const prevBtn = document.querySelector('.carousel-btn.prev');
@@ -198,6 +309,32 @@ function initTestimonialsCarousel() {
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => currentSlide(index + 1));
   });
+
+  // Add touch support for mobile
+  const carousel = document.querySelector('.testimonials-carousel');
+  if (carousel) {
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        moveCarousel(1); // Swipe left - next
+      } else {
+        moveCarousel(-1); // Swipe right - previous
+      }
+    }
+  }
 }
 
 function moveCarousel(direction) {
