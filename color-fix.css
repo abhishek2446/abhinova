@@ -1,0 +1,44 @@
+/* Color Override for Violet-Blue Theme */
+:root {
+  --accent-gold: #8B5CF6 !important;
+  --accent-orange: #3B82F6 !important;
+  --accent-violet: #8B5CF6 !important;
+  --accent-blue: #3B82F6 !important;
+  --gradient-primary: linear-gradient(135deg, #8B5CF6, #3B82F6) !important;
+  --gradient-secondary: linear-gradient(135deg, #3B82F6, #10B981) !important;
+  --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Override all gold/orange colors */
+.logo-img {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+.btn-cta, .btn-primary {
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+}
+
+.trust-icon, .feature-icon, .contact-icon, .stat-plus {
+  color: #8B5CF6 !important;
+}
+
+.service-features li::before {
+  color: #8B5CF6 !important;
+}
+
+.currency-symbol {
+  color: #8B5CF6 !important;
+}
+
+.dot.active {
+  background: #8B5CF6 !important;
+}
+
+.pricing-card.featured {
+  border-color: #8B5CF6 !important;
+}
+
+.social-links a {
+  color: #8B5CF6 !important;
+}

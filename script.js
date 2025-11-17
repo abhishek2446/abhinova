@@ -392,7 +392,7 @@ function generateBotResponse(message) {
   }
   
   if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('phone')) {
-    return "You can reach us at +91 775284204 or email us at abhishek@abhinova.com. You can also use our WhatsApp button for instant communication!";
+    return "You can reach us at +91 7752842081 or email us at info@abhinova.com. You can also use our WhatsApp button for instant communication!";
   }
   
   if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
@@ -563,7 +563,7 @@ function initPricingButtons() {
     btn.addEventListener('click', () => {
       const plan = btn.dataset.plan;
       const message = `Hi! I'm interested in the ${plan.charAt(0).toUpperCase() + plan.slice(1)} plan. Can we discuss the details?`;
-      const whatsappUrl = `https://wa.me/917752842084?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/917752842081?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     });
   });
