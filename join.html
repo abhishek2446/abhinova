@@ -4,50 +4,153 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Join Us — Abhinova</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main.css" />
 </head>
-<body class="light-mode">
-  <header class="navbar">
-    <div class="nav-inner container">
-      <div class="logo">Abhinova</div>
-      <nav class="nav-links">
-        <a href="index.html#home">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="index.html#clients">Clients</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="team.html">Team</a>
+<body class="dark-mode">
+  <header class="header" id="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="LOGO.jpg" alt="ABHINOVA Logo" class="logo-img">
+        <span class="logo-text">ABHINOVA</span>
+      </div>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#portfolio" class="nav-link">Projects</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="team.html" class="nav-link">Team</a>
       </nav>
-      <div class="nav-actions">
-        <a class="donate-link" href="PAYPAL_LINK_HERE" target="_blank" rel="noopener">Donate</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      
+      <div class="header-actions">
+        <a href="index.html#contact" class="cta-btn">Work With Me</a>
+        <button class="mobile-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
-        <h2 class="section-heading">Join Us</h2>
-        <p class="section-subtext">Apply to join the Abhinova team. Attach your resume or paste details below.</p>
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="access_key" value="855f0419-35c5-40fc-9ebd-ab8300b38b56">
-          <input type="text" name="name" placeholder="Full name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="tel" name="phone" placeholder="Phone (optional)">
-          <label for="resume">Resume (optional)</label>
-          <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx">
-          <textarea name="message" rows="5" placeholder="Tell us about you"></textarea>
-          <div class="center-row">
-            <button type="submit" class="btn primary">Submit Application</button>
+        <div class="section-header text-center">
+          <h2 class="section-title">Join Our Team</h2>
+          <p class="section-subtitle">Ready to be part of something amazing? Apply to join the ABHINOVA team and help us build the future of web development.</p>
+        </div>
+        
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">🚀</div>
+              <div class="contact-details">
+                <h4>Why Join Us?</h4>
+                <p>Work on cutting-edge projects with modern technologies and grow your skills in a collaborative environment.</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">🎆</div>
+              <div class="contact-details">
+                <h4>What We Offer</h4>
+                <p>Flexible work arrangements, competitive compensation, and opportunities to work on diverse projects.</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div class="contact-details">
+                <h4>Open Positions</h4>
+                <p>Frontend Developer, Backend Developer, UI/UX Designer, Project Manager</p>
+              </div>
+            </div>
           </div>
-        </form>
+          
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="access_key" value="855f0419-35c5-40fc-9ebd-ab8300b38b56">
+            
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Full Name" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+            </div>
+            
+            <div class="form-group">
+              <select name="position" required>
+                <option value="">Select Position</option>
+                <option value="frontend">Frontend Developer</option>
+                <option value="backend">Backend Developer</option>
+                <option value="fullstack">Full-Stack Developer</option>
+                <option value="uiux">UI/UX Designer</option>
+                <option value="pm">Project Manager</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="resume" style="color: var(--text-secondary); margin-bottom: 8px; display: block;">Resume (PDF, DOC, DOCX)</label>
+              <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" style="padding: 10px; background: var(--primary-bg); border: 1px solid var(--border-color); border-radius: 8px;">
+            </div>
+            
+            <div class="form-group">
+              <textarea name="message" rows="5" placeholder="Tell us about yourself, your experience, and why you want to join ABHINOVA..." required></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Submit Application</button>
+              <a href="index.html#contact" class="btn-secondary">Contact Us First</a>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="container center-text">© Abhinova.com</div></footer>
-  <script src="script.js"></script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="LOGO.jpg" alt="ABHINOVA Logo" class="footer-logo-img">
+            <span class="footer-logo-text">ABHINOVA</span>
+          </div>
+          <p>Professional web development services with modern design and smart solutions.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" class="social-icon">📧</a>
+            <a href="#" class="social-icon">💼</a>
+            <a href="#" class="social-icon">🐦</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 ABHINOVA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>

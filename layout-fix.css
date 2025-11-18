@@ -1,0 +1,267 @@
+/* Layout Fix - Remove Empty Spaces */
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Section Spacing Fix */
+.section {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.hero {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.services-preview {
+    padding: 2rem 0;
+    margin: 0;
+}
+
+.why-choose-premium {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.recent-projects-premium {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.founder-section {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.contact-cta-section {
+    padding: 2.5rem 0;
+    margin: 0;
+}
+
+.services {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.why-choose {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.about {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.contact {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+.footer {
+    padding: 2rem 0 1rem;
+    margin: 0;
+}
+
+/* Container Fix */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    padding-top: 80px;
+}
+
+/* Grid and Flex Fixes */
+.services-preview-grid,
+.services-grid,
+.value-grid,
+.projects-grid {
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.hero-content {
+    gap: 3rem;
+    margin: 0;
+}
+
+.why-choose-content,
+.founder-content,
+.about-content {
+    gap: 3rem;
+    margin: 0;
+}
+
+/* Card Spacing */
+.preview-card,
+.service-card,
+.value-card,
+.project-card {
+    margin: 0;
+}
+
+/* Text Spacing */
+.section-header {
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+    margin-bottom: 0;
+}
+
+/* Hero Elements */
+.hero-title {
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    margin-bottom: 2rem;
+}
+
+.feature-tags {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.hero-stats {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+/* Remove Extra Margins */
+.trust-points {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.projects-cta {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.contact-icons {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.about-stats {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* Mobile Responsive Spacing */
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .hero-container {
+        padding-top: 60px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-content {
+        gap: 2rem;
+    }
+    
+    .why-choose-content,
+    .founder-content,
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .services-preview-grid,
+    .services-grid,
+    .value-grid,
+    .projects-grid {
+        gap: 1rem;
+    }
+}
+
+/* Ensure No Overflow */
+.hero-bg,
+.gradient-mesh,
+.floating-elements {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix Any Remaining Gaps */
+.header + .hero {
+    margin-top: 0;
+}
+
+section + section {
+    margin-top: 0;
+}
+
+/* Compact Layout */
+.feature-tag {
+    margin: 0;
+}
+
+.trust-point {
+    margin-bottom: 1rem;
+}
+
+.trust-point:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item {
+    margin-bottom: 1.5rem;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer Spacing */
+.footer-content {
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    margin: 0;
+    padding-top: 1.5rem;
+}
+
+/* Form Spacing */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
